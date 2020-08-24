@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+}
+
+#funcion{
+  border: solid 1px #000000;
+}
+
+.Navegador {	
+	font-family:'Oswald', sans-serif;	
+}
+
+/*Estilos Generales*/
+
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav li {
+	line-height: 3em;
+	position: relative;
+}
+
+nav li ul {
+	position: absolute;
+}
+nav a{
+	color:#ddd;
+	display: block;
+	padding: 0 2.5em;
+	text-decoration: none;
+}
+
+nav a:hover {  
+	background: rgba(0,0,0,0.9);
+	transition: 0.4s;
+}
+
+
+/*Primer Nivel*/
+
+nav > ul {
+	background: #333;
+	display: table;
+	width: 100%;
+}
+
+nav > ul > li {
+	float: left;
+}
+
+/*Segundo Nivel*/
+
+nav li li {
+	background: #222;	
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.5s;
+	width: 200px;
+}
+
+nav li:hover > ul > li {
+	max-height: 1000px;
+	overflow: visible;
+}
+
+nav > ul > li > ul {
+	top: 105%;
+}
+
+/*Tercer Nivel*/
+
+nav ul ul ul {
+	left:101%;
+	top:0;
+}
+
+#greeting {
+	color:blue;
+	font-family:'Oswald', sans-serif;
+}
+
