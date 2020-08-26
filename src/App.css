@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: start;
 }
 
 #funcion{
@@ -79,5 +79,15 @@ nav ul ul ul {
 #greeting {
 	color:blue;
 	font-family:'Oswald', sans-serif;
+	text-align: Center;
 }
+.cartShop {
+
+	border: solid 1px #000000;
+	width: 200px;
+	justify-content: space-around;	
+
+}
+
+
 
