@@ -1,55 +1,25 @@
-import React, {Component} from 'react';
+import React , { useState } from "react";
 
-class ItemCount extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      contador : 0 
-    }; 
-  }
-  onClickAdd(){
-    if (this.state.contador <10){
-        this.setState({
-        contador : this.state.contador+1       
-        });
-    }
-  }
+function ItemCount (){
+const [count, setCount] = useState(0);
 
-  onClickDel(){
-    if (this.state.contador >0){
-    this.setState({
-       contador : this.state.contador-1       
-    });
-    }
-  }
-  render(){
-    return (
-        <div className="container ">
-            <h1>Contador</h1>
-            <div className="row cartShop">
-                <Button label="-" onClick={()=>this.onClickDel()} />
-                <Contador valor={this.state.contador}/>
-                <Button label="+" onClick={()=>this.onClickAdd()} />        
-                
-            </div>
-        </div>
-    )
-  }
+function del (){ 
+  if (count > 0){setCount(count-1)} 
 }
 
-export default ItemCount;
+function add (){
+  if (count < 10){setCount(count+1)}
+}
 
-//Functional Component
-const Contador = props => {
-    return(
-      <div>
-        <h5>{props.valor}</h5>
-      </div>
-    );
-  };
-  
-const Button = props => {
-    return (
-      <button onClick={()=>props.onClick()}> {props.label}</button>
-    );
-};
+return (  <div className="container">
+  <h1>Contador</h1>
+    <div className="row cartShop">
+    <button onClick={del}>-</button>
+    <p>{count}</p>
+    <button onClick={add}>+</button>
+    </div>
+  </div>
+)
+}
+
+export default ItemCount
