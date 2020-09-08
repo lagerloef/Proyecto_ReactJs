@@ -13,8 +13,8 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-import CartIcon from './CartIcon';
 
+import CartIcon from './CartIcon';
 const Menu = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 

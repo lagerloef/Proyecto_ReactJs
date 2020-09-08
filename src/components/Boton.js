@@ -2,7 +2,9 @@ import React from 'react';
 import { Button } from 'reactstrap';
 
 export default (props) => {
-  return (
-    <Button color="danger">Danger!</Button>
+    return (
+    <Button color={props.color} onClick={props.onClick}>{props.sign}</Button>
   );
 };
+
+

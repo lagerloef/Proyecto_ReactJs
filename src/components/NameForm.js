@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 
 class NameForm extends React.Component {
   constructor(props) {
@@ -32,3 +32,4 @@ class NameForm extends React.Component {
 }
 
 export default NameForm
+*/
