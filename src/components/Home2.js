@@ -1,5 +1,5 @@
-/*import React, {Component} from 'react';
-class Home extends Component{
+import React, {Component} from 'react';
+class Home2 extends Component{
     render(){
         return (
             <div>
@@ -11,4 +11,4 @@ class Home extends Component{
     }
 }
 
-export default Home;*/
+export default Home2;

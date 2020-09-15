@@ -7,10 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarText
 } from 'reactstrap';
 
@@ -29,31 +25,17 @@ const Menu = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Inicio</NavLink>
+              <NavLink href="/">Inicio</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Acerca de</NavLink>
+              <NavLink href="/Laptop">Laptop</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Productos
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Notebook
-                </DropdownItem>
-                <DropdownItem>
-                  Tabletas
-                </DropdownItem>
-                <DropdownItem>
-                  Ceulares
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/Tablet">Tableta</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/Celular">Celular</NavLink>
+            </NavItem>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>

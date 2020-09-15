@@ -55,10 +55,9 @@ import Input from "./Input";
   render() {
     
     return (
-      <div>        
-        <h1>Contador</h1>       
+      <div> 
         <Button
-          color="danger"
+          color="dark"
           onClick={this.handleSubstract}
           sign="-"
         />
