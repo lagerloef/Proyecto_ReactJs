@@ -1,19 +1,27 @@
-import React from 'react';
+import React from "react";
 import { Link } from 'react-router-dom';
 
-function Item (props){
-    return(
-        <div className="col-lg-12  col-md-12  col-sm-12" >
+
+      
+   function Item (props) {  
+     return (                             
+        <div className="col-lg-12  col-md-12  col-sm-12">
+            <h6>{props.value.title}</h6>
+            <img
+              src={props.value.thumbnail} 
+              style={{"width": "150px"}}
+              alt={props.value.title}
+            />
+            <p>$ {props.value.price}</p>
             <Link to={`/item/${props.value.id}`}>
-                <h4 >{props.value.nombre}</h4>
+            <p>product_id: {props.value.id}</p>
             </Link>
-            <p>Precio: <strong>${props.value.precio}</strong></p>            
-        </div>
-    )
-} 
+        </div> 
+        
+     );  
+   }  
 
-export default Item;
-
+   export default Item;
 
 
 
