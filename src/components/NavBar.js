@@ -28,14 +28,8 @@ const Menu = (props) => {
               <NavLink href="/">Inicio</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Laptop">Laptop</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/Tablet">Tableta</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/Celular">Celular</NavLink>
-            </NavItem>
+              <NavLink href="/">Contactos</NavLink>
+            </NavItem>            
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>

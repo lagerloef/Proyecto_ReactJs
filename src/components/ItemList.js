@@ -1,40 +1,102 @@
-import React, { useState} from "react";
-import Item from './Item.js';
+import React, { useState, useEffect } from 'react';
+import Item from './Item';
 
-function ItemsList() {
-    const [products, setProducts] = useState([]);               
-    const [error, setError] = useState("");
-   
-    getProducts()
-      .then((products) => {
-        setProducts(products);
-      })
-      .catch((err) => {
-        setError(err);   
-      });
-     if (!error) {
-       return (
-         <ul>
-           {products.map((product) => (
-             <Item product={product} />
-           ))}
-         </ul> 
-       
-       );
-     } else return <span>{error}</span>;
+const ItemList= (props) =>{
+  
+  const [data, setData] = useState(false)    
+    
+    useEffect(()=> {      
+      setTimeout(
+        function(){
+          fetch('https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items')        
+          .then(response => {
+            return response.json();
+          })
+          .then(res => {
+              setData(res)              
+          })
+        }, 1000
+      )
+    },[])
+
+
+    if(data.length > 0){
+      return data.map((p, i) => (                   
+          <div className= "itemProducts col-lg-4  col-md-6  col-sm-12" key={i}>
+               <Item value={data[i]}/>         
+          </div>          
+      ))      
+    }   
+      return <div style={{textAlign: 'left', marginLeft: '5vw'}}>
+          'Loading List of products...'
+      </div> 
+
+}
+
+
+export default ItemList;
+
+
+
+
+
+
+
+/*import React, { useState, useEffect } from "react";
+
+function ItemList() {
+  const [data, setData] = useState([]);  
+  const [error, setError] = useState("");
+ 
+  useEffect(() => { 
+      
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=Celular&limit=20`)
+    .then(response => {
+      return response.json();
+    })
+    .then(res => {
+      console.log(res);
+      setData(res.results);         
+    })
+    .catch(error => {
+      setError(error);
+    }); 
+    
+    
+  }, []) 
+
+  useEffect(() => {
+    console.log(data);
+  }, [data])
+
+  if (!error) {
+    return (
+      <ul>
+        {data.map((prod) => (        
+        <div key={prod.id} className="itemProducts col-lg-4  col-md-6  col-sm-12">
+            <h6>{prod.title}</h6>
+            <img
+              src={prod.thumbnail} 
+              style={{"width": "150px"}}
+              alt="{item.title}"
+            />
+            <p>${prod.price}</p>
+            <p>product: {prod.id}</p>
+            <li>Detalle del Producto</li>
+        </div> 
+      ))}
+      </ul> 
+    
+    );
+  } else {
+    return <span>{error}</span>;
   }
 
-  export default ItemsList
-  
-function getProducts() {                                                                                          
-     return new Promise((resolve, reject) => {                            
-         setTimeout(() => {                                                 
-           resolve([                                                        
-             { id: 1, name: "Notebook GADNIC GLOWN", description:"Intel Atom x5 Z8350 14 Pulg.", price:"45.000"},
-             { id: 2, name: "Notebook Lenovo V15 IIL", description:"Intel Core i7 -1065G7 15.6 Pulg.", price:"120.000" },
-             { id: 3, name: "Tablet Alcatel 1T 8082", description:"16G 1G 10.1 Pulg.", price:"15.000" },                                
-             { id: 4, name: "Celular Alcatel 1", description:"16G 1G 5 Pulg.", price:"10.000" },
-           ]);                                                              
-         }, 2000);                                                          
-       });                                                                  
-    }   
+}
+
+export default ItemList;
+*/
+
+
+
+

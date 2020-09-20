@@ -1,22 +1,18 @@
-import React from "react";
-import ItemCount from './ItemCount'
-      
-   function ItemDetail(props) {  
-     return (                             
-        <div key={props.item.id} className="itemProducts col-lg-4  col-md-6  col-sm-12">
-            <h6>{props.item.title}</h6>
-            <img
-              src={props.item.thumbnail} 
-              style={{"width": "150px"}}
-              alt="{item.title}"
-            />
-            <p>$ {props.item.price}</p>
-            <p>product_id: {props.item.id}</p>
-            <ItemCount/>            
-            <button>comprar</button>           
-        </div> 
-        
-     );  
-   }  
+import React from 'react';
+import ItemCount from './ItemCount.js';
 
-   export default ItemDetail;
+function ItemDetail(props){
+  return(
+    <div div className="detailProduct">
+        <h1>Detalle del Producto {props.value.id}</h1>
+        <h4>{props.value.nombre}</h4>
+        <h5>Categoria: {props.value.categoria}</h5>
+        <p><strong>Precio: $</strong>{props.value.precio}</p>
+        <ItemCount/>
+        <button>Comprar</button>
+        <hr></hr>
+    </div>
+  )
+}
+
+export default ItemDetail;
