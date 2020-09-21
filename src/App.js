@@ -6,6 +6,9 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import BuildingCart from './components/Cart';
+import Products1 from './components/Products1';
+import Products2 from './components/Products2';
+import Products3 from './components/Products3';
 
 
 function App() {
@@ -19,7 +22,10 @@ function App() {
         <Switch>
         <Route exact path="/" ><Home nombre="Juan Pablo"/></Route>
         <Route path="/item/:id" component={ItemDetailContainer}/>
-        <Route exact path="/cart" ><BuildingCart/></Route>
+        <Route path="/cart" ><BuildingCart/></Route>
+        <Route path="/Laptop" ><Products1 nombre="Juan Pablo"/></Route>
+        <Route path="/Tablet" ><Products2 nombre="Juan Pablo"/></Route>
+        <Route path="/Celular" ><Products3 nombre="Juan Pablo"/></Route>
         </Switch>
       </BrowserRouter>
     </div>
