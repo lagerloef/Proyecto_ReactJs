@@ -27,6 +27,7 @@ export default function ItemDetailContainer(props) {
     console.log(data);
   }, [data])
 
+  
   if(loading) {
     return <div>Loading...</div>
   }

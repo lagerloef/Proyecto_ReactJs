@@ -1,79 +1,33 @@
-import React, { Component } from 'react';
-import Button from './Boton';
-import Input from "./Input";
+import React, { useState, useEffect } from 'react';
+import Button from "./Boton"
 
- class ItemCount extends Component {
+function ItemCount2 (props) {
+  const [count, setCount] = useState(0); 
   
-  constructor() {
-    super();   
-    
-    //Initial Value in the Count
-    this.state = {
-      count: 0
-    }
-    // Minimum value for counter.
-    
-    this.minCounter = 0;
-    //Maximum value for counter.      
-    
-    this.maxCounter = 5;
-    //Handle change on the input Component.
-      
-    this.handleChange = this.handleChange.bind(this);
+  useEffect(() => {      
+      if(count <0){
+          setCount(0)
+      }else{
+      if(count === 11){
+          setCount(10)
+        }
+        }
+    })
 
-    }
-
- 
-  //Handles the state change of the input element.
-   
-  handleChange = (event) => {
-    this.setState({
-      count: event.target.value
-    });
-  }
-
-  //Handles the add action in the Button.
-  
-  handleAdd = () => {
-    if(this.state.count < this.maxCounter) {
-      this.setState((state) => ({
-        count: state.count + 1
-      }));
-    }
-  }
-  
-  //Handles the Substract action in the Button.
-   
-  handleSubstract = () => {
-    if(this.state.count > this.minCounter) {
-      this.setState((state) => ({
-        count: state.count - 1
-      }));
-    }
-  }
-   
-  render() {
-    
-    return (
-      <div> 
-        <Button
-          color="dark"
-          onClick={this.handleSubstract}
-          sign="-"
+  return (
+    <div onClick={props.func(count)}>     
+      <Button
+        color="dark" 
+        onClick={() => setCount(count + 1)}
+        sign="+"
+        />      
+      <input value={count}/>  
+      <Button 
+        color="dark"
+        onClick={() => setCount(count - 1)}
+        sign="-"
         />
-        <Input
-          count={this.state.count}
-          handleChange={this.handleChange}
-        />
-        <Button
-          color="dark"
-          onClick={this.handleAdd}
-          sign="+"
-        />        
-      </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default ItemCount
-  
+export default ItemCount2;

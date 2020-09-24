@@ -1,7 +1,16 @@
-import React from "react";
+import React, {useState} from 'react';
 import ItemCount from './ItemCount';
 
 function ItemDetail (props){
+
+  const [count, setCount] = useState(0);
+  const comprar = `Comprar | ${count}`
+
+  function giveMeCount(c){
+      setCount(c)
+      console.log('c => ', c, 'count => ', count);
+  }
+
     return (
     <div style={{
       "display": "flex",
@@ -15,13 +24,11 @@ function ItemDetail (props){
         src={props.prod.secure_thumbnail} 
         style={{"width": "200px"}}
         alt={props.prod.title}
-
       />
       <p>$ {props.prod.price}</p>
       <p>product_id: {props.prod.id}</p>
-      <ItemCount/>
-      <button>comprar</button>
-      
+      <ItemCount func={giveMeCount}/>
+      <button>{comprar} </button>
     </div>
   );
 }
