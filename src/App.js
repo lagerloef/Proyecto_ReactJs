@@ -9,25 +9,28 @@ import BuildingCart from './components/Cart';
 import Products1 from './components/Products1';
 import Products2 from './components/Products2';
 import Products3 from './components/Products3';
+import { CartProvider } from './context/cartContext';
 
 
 function App() {
       
-    return (
+    return (      
       <div className="App">
-      <BrowserRouter>
+      <CartProvider>
+      <BrowserRouter>     
         <header className="App-header">               
           <NavBar/>        
-        </header>
+        </header>   
         <Switch>
-        <Route exact path="/" ><Home nombre="Juan Pablo"/></Route>
+        <Route exact path="/" ><Home nombre="Juan Pablo"/></Route>        
         <Route path="/item/:id" component={ItemDetailContainer}/>
         <Route path="/cart" ><BuildingCart/></Route>
         <Route path="/Laptop" ><Products1 nombre="Juan Pablo"/></Route>
         <Route path="/Tablet" ><Products2 nombre="Juan Pablo"/></Route>
-        <Route path="/Celular" ><Products3 nombre="Juan Pablo"/></Route>
+        <Route path="/Celular" ><Products3 nombre="Juan Pablo"/></Route>      
         </Switch>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

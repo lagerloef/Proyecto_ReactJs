@@ -69,10 +69,7 @@ import Input from "./Input";
           color="dark"
           onClick={this.handleAdd}
           sign="+"
-        />
-        <button onClick={this.state.count}>
-        comprar | {this.state.count}
-        </button>      
+        />    
       </div>
     );
   }

@@ -1,10 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import ItemCount from './ItemCount';
+import { CartContext } from '../context/cartContext';
 
 function ItemDetail (props){
 
   const [count, setCount] = useState(0);
-  const comprar = `Comprar | ${count}`
+  const comprar = `Comprar | ${count}`;  
+  const [cart, setCart] = useContext(CartContext);
+
+  // Set the Cart Context with the added product
+  const addToCart = () => {
+    const product = props.prod;
+    console.log(product);
+    setCart(currentCart => [...currentCart, product])
+  }
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   function giveMeCount(c){
       setCount(c)
@@ -28,7 +40,7 @@ function ItemDetail (props){
       <p>$ {props.prod.price}</p>
       <p>product_id: {props.prod.id}</p>
       <ItemCount func={giveMeCount}/>
-      <button>{comprar} </button>
+      <button onClick={addToCart}>{comprar}</button>      
     </div>
   );
 }
