@@ -8,7 +8,7 @@ export function ItemList (props) {
     setLoading(true);
     setTimeout(
       function() {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${props.products}&limit=10`)
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=Laptop&limit=20`)
         .then(response => {
           return response.json();
         })
@@ -16,7 +16,7 @@ export function ItemList (props) {
           setData(res.results);
           setLoading(false);
         })
-      },3000
+      },1000
     )
     },[]) 
 

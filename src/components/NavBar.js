@@ -16,9 +16,9 @@ const Menu = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar color="dark" dark expand="md">
-      <CartIcon/>        
+    <div>    
+      <Navbar color="dark" dark expand="md">      
+        <CartIcon/>           
         <NavbarBrand href="/">CompuTienda</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -27,18 +27,12 @@ const Menu = (props) => {
               <NavLink href="/">Inicio</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Laptop">Laptop</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/Tablet">Tablet</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/Celular">Smart Phone</NavLink>
-            </NavItem>                                       
+              <NavLink href="/Products">Productos</NavLink>
+            </NavItem>      
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>
-      </Navbar>
+      </Navbar>     
     </div>
   );
 }

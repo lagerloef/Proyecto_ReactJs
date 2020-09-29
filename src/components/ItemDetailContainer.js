@@ -31,7 +31,7 @@ export default function ItemDetailContainer(props) {
   if(loading) {
     return <div>Loading...</div>
   }
-  return (
-    <ItemDetail prod={data}/>
+  return (    
+    <ItemDetail prod={data}/>    
   );
 }
