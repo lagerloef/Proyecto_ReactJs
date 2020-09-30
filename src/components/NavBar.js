@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -19,16 +20,22 @@ const Menu = (props) => {
     <div>    
       <Navbar color="dark" dark expand="md">      
         <CartIcon/>           
-        <NavbarBrand href="/">CompuTienda</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active">CompuTienda</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">Inicio</NavLink>
+              <NavLink tag={RRNavLink} exact to="/" activeClassName="active">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Products">Productos</NavLink>
-            </NavItem>      
+              <NavLink tag={RRNavLink} exact to="/Laptops" activeClassName="active">Laptop</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} exact to="/Tablets" activeClassName="active">Tablets</NavLink>
+            </NavItem>   
+            <NavItem>
+              <NavLink tag={RRNavLink} exact to="/SmartPhones" activeClassName="active">SmartPhone</NavLink>
+            </NavItem>        
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>

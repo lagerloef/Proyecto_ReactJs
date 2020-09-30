@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/cartContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -19,7 +20,8 @@ const Cart = () => {
       {cart.map((item) => (
         <li>{item.title}</li>
       ))}
-      </ul> 
+      </ul>
+      <Link to={'/'}>Home</Link> 
       </div>
     </div>
   )
