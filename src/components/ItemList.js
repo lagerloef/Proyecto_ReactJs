@@ -1,46 +1,69 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
+import {getFirestore} from '../firebase';
 
-export function ItemList (props) {
-  const [data, setData] = useState([]);
+export function ItemList () { 
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);  
+  
   useEffect(() => {
     setLoading(true);
-    setTimeout(
-      function() {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${props.products}s&limit=40`)
-        .then(response => {
-          return response.json();
-        })
-        .then(res => {
-          setData(res.results);
-          setLoading(false);
-        })
-      },1000
-    )
-    },[]) 
+    const db = getFirestore();
+    const itemCollection = db.collection("Items");
+
+    itemCollection.get()
+    .then((querySnapshot)=>{
+        if(querySnapshot.size === 0){
+            console.log('No data!');
+        }
+
+        setItems(querySnapshot.docs.map(doc => {
+          return ({id: doc.id, ...doc.data()});
+        }));
+
+    })
+    .catch((error) => {
+        console.log("Error searching items", error);
+    }).finally(() => {
+        setLoading(false);
+    }); 
+   
+    },[]); 
+
 
   useEffect(() => {
-    console.log(data);
-  }, [data])
+    console.log(items);
+  },[items])
 
   if(loading) {
     return <div>Loading...</div>
   }
+
   return (
     <div className="container">
       <ul>      
-      {data.map((item,i) => (
-        <div key={i} className="itemProducts col-lg-4  col-md-6  col-sm-12">
-            <Item value={item}/>
+      {
+        items.map((p,i) => (
+        <div className="itemProducts col-lg-4  col-md-6  col-sm-12">
+            <Item key={p.id} nombre={p.title} img={p.img} precio={p.price} id={p.id} descripcion={p.description} categoria={p.categoryId}/>
         </div>
       ))}
       </ul>
     </div>
   );
 }
+
 export default ItemList;
 
-
-
-
+/*
+  return (
+    <div className="container">
+      <ul>      
+      {items.map((item,i) => (
+        <div key={i} className="itemProducts col-lg-4  col-md-6  col-sm-12">
+            <h1>Hello</h1>
+        </div>
+      ))}
+      </ul>
+    </div>
+*/

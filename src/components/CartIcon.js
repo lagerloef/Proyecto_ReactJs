@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/cartContext';
 
+
 const CartIcon = (props) => {
-    const [cart, setCart] = useContext(CartContext);    
+    const [cart] = useContext(CartContext);    
 return (<Link to={'/cart'}>
     <div>
         <span>({cart.length})</span>

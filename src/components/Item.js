@@ -1,56 +1,21 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-
-
+import { NavLink } from 'react-router-dom';
       
    function Item (props) {  
-     return (                             
-        <div className="col-lg-12  col-md-12  col-sm-12">
-            <h6>{props.value.title}</h6>
+     return ( 
+      <div className="col-lg-12  col-md-12  col-sm-12"> 
+        <NavLink className="cart" to={`/Items/${props.id}`}>
+            <h6>{props.nombre}</h6>
             <img
-              src={props.value.thumbnail} 
+              src={props.img} 
               style={{"width": "150px"}}
-              alt={props.value.title}
-            />
-            <p>$ {props.value.price}</p>
-            <Link to={`/item/${props.value.id}`}>
-            <p>product_id: {props.value.id}</p>
-            </Link>
-        </div> 
+              alt={props.nombre}
+            />  
+              <p>Precio: {props.precio}</p> 
+        </NavLink>
+      </div> 
         
      );  
    }  
 
    export default Item;
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import React from "react";
-      
-   function Item(props) { 
-
-     return (                             
-        <div className="itemProducts col-lg-4  col-md-6  col-sm-12">
-            <h6>{props.value.nombre}</h6>
-            <p>{props.value.categoria}</p>
-            <p>${props.value.price}</p>
-            <li>Detalle del Producto</li>
-        </div> 
-        
-     );  
-   }  
-  
-
-   export default Item;
-*/
-  

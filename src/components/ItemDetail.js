@@ -5,24 +5,40 @@ import { CartContext } from '../context/cartContext';
 function ItemDetail (props){
 
   const [count, setCount] = useState(0);
-  const comprar = `Comprar | ${count}`;  
-  const [cart, setCart] = useContext(CartContext);
+  //const comprar = `Comprar | ${count}`;  
+  const [cart, carter] = useContext(CartContext);
 
   // Set the Cart Context with the added product
-  const addToCart = () => {
+
+  function handlerBuyer(){
+    if (count !== 0){
+      const total = count*props.prod.price;
+      carter(count, props.prod.title, props.prod.id, props.prod.price,total)
+      setCount(0)
+    }    
+  }
+
+
+  /*
+  const addToCart = () => {    
     const product = props.prod;
     console.log(product);
-    setCart(currentCart => [...currentCart, product])
+    setCart(currentCart => [...currentCart, product])    
   }
-  useEffect(() => {
+   */ 
+  useEffect(() => {  
     console.log(cart);
   }, [cart]);
 
-  function giveMeCount(c){
-      setCount(c)
-      console.log('c => ', c, 'count => ', count);
+ function giveMeCount(c){
+  setCount(c)
   }
-
+  /*
+  useEffect(() => {
+    setHandleCart(true);
+    console.log(count);
+  }, [count]);
+*/
     return (
     <div style={{
       "display": "flex",
@@ -33,14 +49,15 @@ function ItemDetail (props){
     }}>
       <h4>{props.prod.title}</h4>
       <img
-        src={props.prod.secure_thumbnail} 
+        src={props.prod.img} 
         style={{"width": "200px"}}
         alt={props.prod.title}
       />
-      <p>$ {props.prod.price}</p>
-      <p>product_id: {props.prod.id}</p>
+      <p><strong>Descripción: </strong>{props.prod.description}</p>
+      <p><strong>Precio: </strong>${props.prod.price}</p>
+      <p><strong>Product-Id: </strong>{props.prod.id}</p>
       <ItemCount func={giveMeCount}/>
-      <button onClick={addToCart}>{comprar}</button>      
+      <button onClick={()=> handlerBuyer()}>add cart | {count} </button>      
     </div>
   );
 }

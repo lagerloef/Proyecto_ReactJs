@@ -1,11 +1,10 @@
 import React from 'react';
-import ItemList from './ItemList.js'
+import ItemListCategoryId from './ItemListCategoryId.js'
 
 function Products3(props) {
     return <div className="container">                
-                <h1>Smart Phone o teléfonos celulares</h1>                
-                <ItemList products="Celular"/>                
-        </div>            
-           
+                <h1>SmartPhone o teléfonos celulares</h1>                
+                <ItemListCategoryId products="SmartPhones"/>                
+        </div>        
 }
 export default Products3 

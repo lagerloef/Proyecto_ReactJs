@@ -5,12 +5,11 @@ import './App.css';
 import Menu from "./components/NavBar";
 import Home from "./components/Home";
 import ItemDetailContainer from './components/ItemDetailContainer';
-import BuildingCart from './components/Cart';
+import Cart from './components/Cart';
 import Products1 from './components/Products1';
 import Products2 from './components/Products2';
 import Products3 from './components/Products3';
 import { CartProvider } from './context/cartContext';
-
 
 function App() {
       
@@ -23,14 +22,14 @@ function App() {
         </header>       
         <Switch>
         <Route exact path="/" ><Home nombre="Juan Pablo"/></Route>
-        <Route path="/Laptops" ><Products1 nombre="Juan Pablo"/></Route>
-        <Route path="/Tablets" ><Products2 nombre="Juan Pablo"/></Route>
-        <Route path="/SmartPhones" ><Products3 nombre="Juan Pablo"/></Route>     
-        <Route path="/item/:id" component={ItemDetailContainer}/>
-        <Route path="/cart" ><BuildingCart/></Route>            
+        <Route path="/Notebooks" ><Products1/></Route>
+        <Route path="/Tablets" ><Products2/></Route>
+        <Route path="/SmartPhones" ><Products3/></Route>
+        <Route path="/Items/:id" component={ItemDetailContainer}/>           
+        <Route path="/cart" ><Cart/></Route>                   
         </Switch>       
       </BrowserRouter>
-      </CartProvider>
+      </CartProvider>      
     </div>
   );
 }

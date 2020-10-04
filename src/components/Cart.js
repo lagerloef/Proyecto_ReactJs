@@ -3,9 +3,11 @@ import { CartContext } from '../context/cartContext';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const [cart, setCart] = useContext(CartContext);
-
-  return (
+  const [cart] = useContext(CartContext);
+  const price = cart.map((item) => item.total);
+  const sum = price.reduce((a, b) => a + b,0);
+if(cart.length!== 0 ) { 
+   return (
     <div>
       <div style={{
       "display": "flex",
@@ -15,37 +17,29 @@ const Cart = () => {
       "alignItems": "center"
     }}>
       <h4>Carrito de Compra</h4>
-      <span>Productos escogidos: {cart.length}</span> 
-      <ul>      
+      <span>Productos Seleccionados: {cart.length}</span> 
+      <ol>      
       {cart.map((item) => (
-        <li>{item.title}</li>
+        <li>{item.name} , Cantidad: {item.qty}, Precio c/u: ${item.price} , total:${item.total}</li>
       ))}
-      </ul>
+      </ol>
+      <h5>Precio Total: {sum}</h5>
       <Link to={'/'}>Home</Link> 
       </div>
+    </div>
+  )}else return (
+    <div style={{
+      "display": "flex",
+      "flexDirection": "column", 
+      "flexWrap": "wrap", 
+      "justifyContent": "center", 
+      "alignItems": "center"
+    }}>
+    <h4>Carrito de Compra</h4>
+    <h5>No has seleccionado ningún producto en el carrito de Compra</h5>
+    <Link to={'/'}>Home</Link>
     </div>
   )
 }
 
 export default Cart;
-
-
-
-/*import React from 'react';
-
-const BuildingCart = (props) => {
-    return (<div className="container">
-        <div className="cartProduct">            
-            <h4>Carrito de Compra</h4>
-            <ul>
-                <li>Camisa</li>
-            </ul>            
-        </div>
-    
-    </div>)
-}
-
-export default BuildingCart;
-
-*/
-
