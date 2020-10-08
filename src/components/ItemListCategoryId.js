@@ -10,8 +10,8 @@ const ItemListCategoryId = (props) => {
     setLoading(true);
     const db = getFirestore();
     const itemCollection = db.collection("Items")
-    const notebooks = itemCollection.where('categoryId', '==', `${props.products}`);
-    notebooks.get()
+    const categoryItemCollection = itemCollection.where('categoryId', '==', `${props.products}`);    
+    categoryItemCollection.get()
     .then((querySnapshot) => {
       if (querySnapshot.size === 0) {
         console.log('No data!');
@@ -26,7 +26,7 @@ const ItemListCategoryId = (props) => {
     .finally(() => {
       setLoading(false)
     })
-  }, []);
+  }, [props.products]);
 
   useEffect(() => {
     console.log(items);

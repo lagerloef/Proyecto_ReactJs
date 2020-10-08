@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from "./Boton"
 
-function ItemCount2 (props) {
-  const [count, setCount] = useState(0); 
-  
+function ItemCount (props) {
+  //const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const stock = 10;
+  const limit = stock +1
+ /*
   useEffect(() => {      
       if(count <0){
           setCount(0)
@@ -13,6 +17,15 @@ function ItemCount2 (props) {
         }
         }
     })
+    */
+
+   if(count <0){
+    setCount(0)
+    }else{
+    if(count === limit){
+    setCount(10)
+    }
+  }
 
   return (
     <div onClick={props.func(count)}>     
@@ -30,4 +43,4 @@ function ItemCount2 (props) {
     </div>
   );
 }
-export default ItemCount2;
+export default ItemCount;

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/cartContext';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 const Cart = () => {
   const [cart] = useContext(CartContext);
@@ -24,7 +25,9 @@ if(cart.length!== 0 ) {
       ))}
       </ol>
       <h5>Precio Total: {sum}</h5>
-      <Link to={'/'}>Home</Link> 
+      <Link to={'/purchaseOrder'}>
+        <Button color="dark">Generar Datos</Button>
+      </Link>        
       </div>
     </div>
   )}else return (
@@ -36,7 +39,7 @@ if(cart.length!== 0 ) {
       "alignItems": "center"
     }}>
     <h4>Carrito de Compra</h4>
-    <h5>No has seleccionado ningún producto en el carrito de Compra</h5>
+    <h5>No has seleccionado ningún producto en el carrito de Compra</h5>    
     <Link to={'/'}>Home</Link>
     </div>
   )

@@ -6,7 +6,6 @@ export default function ItemDetailContainer(props) {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const id = props.match.params.id;
-  
   useEffect(() => {
     setLoading(true);    
     console.log(id);

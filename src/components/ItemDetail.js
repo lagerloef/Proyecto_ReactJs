@@ -1,12 +1,14 @@
 import React, {useState, useContext, useEffect} from 'react';
 import ItemCount from './ItemCount';
 import { CartContext } from '../context/cartContext';
+import { useParams } from 'react-router-dom';
 
 function ItemDetail (props){
 
   const [count, setCount] = useState(0);
   //const comprar = `Comprar | ${count}`;  
   const [cart, carter] = useContext(CartContext);
+  const {id} =useParams();
 
   // Set the Cart Context with the added product
 
@@ -52,10 +54,10 @@ function ItemDetail (props){
         src={props.prod.img} 
         style={{"width": "200px"}}
         alt={props.prod.title}
-      />
+      />     
       <p><strong>Descripción: </strong>{props.prod.description}</p>
       <p><strong>Precio: </strong>${props.prod.price}</p>
-      <p><strong>Product-Id: </strong>{props.prod.id}</p>
+      <p><strong>Product-Id: </strong>{id}</p>
       <ItemCount func={giveMeCount}/>
       <button onClick={()=> handlerBuyer()}>add cart | {count} </button>      
     </div>
