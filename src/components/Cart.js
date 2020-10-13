@@ -5,9 +5,12 @@ import { Button } from 'reactstrap';
 
 const Cart = () => {
   const [cart] = useContext(CartContext);
-  const price = cart.map((item) => item.total);
-  const sum = price.reduce((a, b) => a + b,0);
-if(cart.length!== 0 ) { 
+  const total = cart.map((item) => item.total);
+  const sum = total.reduce((a, b) => a + b,0);
+  const qtyItems = cart.map((item) => item.qty);  
+  const totalQtyItems = qtyItems.reduce((a, b) => a + b,0); 
+
+  if(cart.length!== 0 ) { 
    return (
     <div>
       <div style={{
@@ -18,7 +21,7 @@ if(cart.length!== 0 ) {
       "alignItems": "center"
     }}>
       <h4>Carrito de Compra</h4>
-      <span>Productos Seleccionados: {cart.length}</span> 
+      <span>Productos Seleccionados: {totalQtyItems} </span> 
       <ol>      
       {cart.map((item) => (
         <li>{item.name} , Cantidad: {item.qty}, Precio c/u: ${item.price} , total:${item.total}</li>
