@@ -37,7 +37,7 @@ const Menu = (props) => {
               <NavLink tag={RRNavLink} exact to="/SmartPhones" activeClassName="active">Celulares</NavLink>
             </NavItem>        
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText>CompuTienda</NavbarText>
         </Collapse>
       </Navbar>     
     </div>

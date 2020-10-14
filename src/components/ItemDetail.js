@@ -51,8 +51,7 @@ function ItemDetail (props){
     }}>
       <h4>{props.prod.title}</h4>
       <img
-        src={props.prod.img} 
-        style={{"width": "200px"}}
+        src={props.prod.img}
         alt={props.prod.title}
       />     
       <p><strong>Descripción: </strong>{props.prod.description}</p>

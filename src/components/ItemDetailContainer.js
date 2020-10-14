@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import {getFirestore} from '../firebase';
+import Loader from "./loader/Loader";
 
 export default function ItemDetailContainer(props) {
   const [product, setProduct] = useState([]);
@@ -36,7 +37,7 @@ export default function ItemDetailContainer(props) {
 
   
   if(loading) {
-    return <div>Loading...</div>
+    return <div><Loader/></div>
   }
   return (    
     <ItemDetail prod={product}/>    

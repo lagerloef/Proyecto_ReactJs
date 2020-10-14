@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import {getFirestore} from '../firebase';
+import Loader from "./loader/Loader";
 
 const ItemListCategoryId = (props) => {
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ const ItemListCategoryId = (props) => {
   },[items])
 
   if(loading) {
-    return <div>Loading...</div>
+    return <div><Loader/></div>
   }
 
   return (

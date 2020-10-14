@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import {getFirestore} from '../firebase';
+import Loader from "./loader/Loader";
 
 export function ItemList () { 
   const [items, setItems] = useState([]);
@@ -36,7 +37,7 @@ export function ItemList () {
   },[items])
 
   if(loading) {
-    return <div>Loading...</div>
+    return <div><Loader/></div>
   }
 
   return (

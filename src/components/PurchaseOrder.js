@@ -14,7 +14,7 @@ function PurchaseOrder(props) {
   const [name, setName] = useState();
   const [orderId, setOrderID] = useState()  
   const price = cart.map((item) => item.total);
-  const sum = price.reduce((a, b) => a + b,0);
+  const sum = price.reduce((a, b) => a + b,0);  
 
   function fire(e){
     e.preventDefault();            
@@ -42,7 +42,7 @@ function PurchaseOrder(props) {
   function clearState(){
        setEmail('')
         setName('')
-        setPhone('')        
+        setPhone('')                        
       }
 
 

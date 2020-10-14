@@ -29,14 +29,12 @@ function ItemCount (props) {
 
   return (
     <div onClick={props.func(count)}>     
-      <Button
-        color="dark" 
+      <Button        
         onClick={() => setCount(count + 1)}
         sign="+"
         />      
       <input value={count}/>  
-      <Button 
-        color="dark"
+      <Button         
         onClick={() => setCount(count - 1)}
         sign="-"
         />
