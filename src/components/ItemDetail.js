@@ -14,20 +14,12 @@ function ItemDetail (props){
 
   function handlerBuyer(){
     if (count !== 0){
-      const total = count*props.prod.price;
-      carter(count, props.prod.title, props.prod.id, props.prod.price,total)
+      const subtotal = count*props.prod.price;
+      carter(count, props.prod.title, props.prod.id, props.prod.price, subtotal)
       setCount(0)
     }    
   }
 
-
-  /*
-  const addToCart = () => {    
-    const product = props.prod;
-    console.log(product);
-    setCart(currentCart => [...currentCart, product])    
-  }
-   */ 
   useEffect(() => {  
     console.log(cart);
   }, [cart]);
@@ -35,22 +27,20 @@ function ItemDetail (props){
  function giveMeCount(c){
   setCount(c)
   }
-  /*
-  useEffect(() => {
-    setHandleCart(true);
-    console.log(count);
-  }, [count]);
-*/
+
     return (
     <div style={{
       "display": "flex",
       "flexDirection": "column", 
       "flexWrap": "wrap", 
       "justifyContent": "center", 
-      "alignItems": "center"
+      "alignItems": "center"      
     }}>
       <h4>{props.prod.title}</h4>
       <img
+        style={
+          {"max-height": "200px"}
+        }
         src={props.prod.img}
         alt={props.prod.title}
       />     
@@ -58,7 +48,8 @@ function ItemDetail (props){
       <p><strong>Precio: </strong>${props.prod.price}</p>
       <p><strong>Product-Id: </strong>{id}</p>
       <ItemCount func={giveMeCount}/>
-      <button onClick={()=> handlerBuyer()}>add cart | {count} </button>      
+      <br/>
+      <button className="btn btn-dark" onClick={()=> handlerBuyer()}>add cart | {count} </button>      
     </div>
   );
 }

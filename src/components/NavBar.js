@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
+import { CartContext } from '../context/cartContext';
 import {
   Collapse,
   Navbar,
@@ -8,11 +9,14 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText
+  NavbarText,
 } from 'reactstrap';
 import CartIcon from './CartIcon';
 const Menu = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);  
+  const [cart] = useContext(CartContext);
+  const qtyProducts = cart.map((item) => item.qty);  
+  const totalQtyProducts = qtyProducts.reduce((a, b) => a + b,0);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -35,7 +39,12 @@ const Menu = (props) => {
             </NavItem>   
             <NavItem>
               <NavLink tag={RRNavLink} exact to="/SmartPhones" activeClassName="active">Celulares</NavLink>
-            </NavItem>        
+            </NavItem> 
+            <NavItem>
+              <NavLink tag={RRNavLink} exact to="/cart" activeClassName="active">
+                Cart({totalQtyProducts})
+              </NavLink>
+            </NavItem>       
           </Nav>
           <NavbarText>CompuTienda</NavbarText>
         </Collapse>

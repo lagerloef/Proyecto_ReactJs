@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { CartContext } from '../context/cartContext';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { Table } from 'reactstrap';
 
 const Cart = () => {
   const [cart] = useContext(CartContext);
-  const total = cart.map((item) => item.total);
-  const sum = total.reduce((a, b) => a + b,0);
-  const qtyItems = cart.map((item) => item.qty);  
-  const totalQtyItems = qtyItems.reduce((a, b) => a + b,0); 
+  const subtotal = cart.map((item) => item.subtotal);
+  const total = subtotal.reduce((a, b) => a + b,0);
+  const qtyProducts = cart.map((item) => item.qty);  
+  const totalQtyProducts = qtyProducts.reduce((a, b) => a + b,0);
 
   if(cart.length!== 0 ) { 
    return (
@@ -21,16 +22,37 @@ const Cart = () => {
       "alignItems": "center"
     }}>
       <h4>Carrito de Compra</h4>
-      <span>Productos Seleccionados: {totalQtyItems} </span> 
-      <ol>      
+      <span>Productos Seleccionados: {totalQtyProducts} </span> 
+      <Table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>SubTotal</th>
+        </tr> 
+        </thead>
+      <tbody>     
       {cart.map((item) => (
-        <li>{item.name} , Cantidad: {item.qty}, Precio c/u: ${item.price} , total:${item.total}</li>
+        <tr>
+          <th scope="row">{item.name}</th>
+          <td>{item.qty}</td>
+          <td>${item.price}</td>
+          <td>${item.subtotal}</td>
+        </tr>        
       ))}
-      </ol>
-      <h5>Precio Total: {sum}</h5>
+      </tbody>
+      </Table>
+      <h5>Precio Total: {total}</h5>
+      <div className="row">      
       <Link to={'/purchaseOrder'}>
-        <Button color="dark">Generar Datos</Button>
-      </Link>        
+        <Button color="dark">Iniciar Compra</Button>
+      </Link>            
+      <Link to={'/'}>
+        <Button color="secondary">Seguir comprando</Button>
+      </Link>
+      </div>
+      <br/>        
       </div>
     </div>
   )}else return (
@@ -42,7 +64,7 @@ const Cart = () => {
       "alignItems": "center"
     }}>
     <h4>Carrito de Compra</h4>
-    <h5>No has seleccionado ningún producto en el carrito de Compra</h5>    
+    <h5>Elige productos en el carrito de Compra</h5>    
     <Link to={'/'}>Home</Link>
     </div>
   )
