@@ -32,13 +32,13 @@ const Menu = (props) => {
               <NavLink tag={RRNavLink} exact to="/" activeClassName="active">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} exact to="/Notebooks" activeClassName="active">Laptops</NavLink>
+              <NavLink tag={RRNavLink} exact to="/categorias/Notebooks" activeClassName="active">Notebooks</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} exact to="/Tablets" activeClassName="active">Tablets</NavLink>
+              <NavLink tag={RRNavLink} exact to="/categorias/Tablets" activeClassName="active">Tablets</NavLink>
             </NavItem>   
             <NavItem>
-              <NavLink tag={RRNavLink} exact to="/SmartPhones" activeClassName="active">Celulares</NavLink>
+              <NavLink tag={RRNavLink} exact to="/categorias/SmartPhones" activeClassName="active">Celulares</NavLink>
             </NavItem> 
             <NavItem>
               <NavLink tag={RRNavLink} exact to="/cart" activeClassName="active">

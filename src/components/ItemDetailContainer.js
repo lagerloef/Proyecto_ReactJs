@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import {getFirestore} from '../firebase';
 import Loader from "./loader/Loader";
+import { useParams } from 'react-router-dom';
 
 export default function ItemDetailContainer(props) {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
-  const id = props.match.params.id;
+  const {id} = useParams();  
+  console.log(id);  
+  //const id = props.match.params.id;
   useEffect(() => {
     setLoading(true);    
     console.log(id);

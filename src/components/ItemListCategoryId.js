@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import {getFirestore} from '../firebase';
 import Loader from "./loader/Loader";
+import { useParams } from 'react-router-dom';
 
 const ItemListCategoryId = (props) => {
   const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState([]);  
+  const [items, setItems] = useState([]);
+  const {categoryId} = useParams();  
+  console.log(categoryId);  
   
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
     const itemCollection = db.collection("Items")
-    const categoryItemCollection = itemCollection.where('categoryId', '==', `${props.products}`);    
+    const categoryItemCollection = itemCollection.where('categoryId', '==', `${categoryId}`);    
     categoryItemCollection.get()
     .then((querySnapshot) => {
       if (querySnapshot.size === 0) {
@@ -27,7 +30,7 @@ const ItemListCategoryId = (props) => {
     .finally(() => {
       setLoading(false)
     })
-  }, [props.products]);
+  }, [categoryId]);
 
   useEffect(() => {
     console.log(items);

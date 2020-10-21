@@ -7,9 +7,7 @@ import Home from "./components/Home";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import PurchaseOrder from './components/PurchaseOrder';
-import Products1 from './components/Products1';
-import Products2 from './components/Products2';
-import Products3 from './components/Products3';
+import CategoryContainer from './components/CategoryContainer';
 import { CartProvider } from './context/cartContext';
 
 function App() {      
@@ -22,10 +20,8 @@ function App() {
         </header>       
         <Switch>
         <Route exact path="/" ><Home nombre="Juan Pablo"/></Route>
-        <Route path="/Notebooks"><Products1/></Route>
-        <Route path="/Tablets"><Products2/></Route>
-        <Route path="/SmartPhones"><Products3/></Route>
-        <Route path="/Items/:id" component={ItemDetailContainer}/>           
+        <Route path="/categorias/:categoryId"><CategoryContainer/></Route>
+        <Route path="/Items/:id"><ItemDetailContainer/></Route>
         <Route path="/cart" ><Cart/></Route>
         <Route path="/purchaseOrder" ><PurchaseOrder/></Route>
         </Switch>
