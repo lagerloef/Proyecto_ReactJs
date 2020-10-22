@@ -10,7 +10,7 @@ export function ItemList () {
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
-    const itemCollection = db.collection("Items");
+    const itemCollection = db.collection("items");
 
     itemCollection.get()
     .then((querySnapshot)=>{

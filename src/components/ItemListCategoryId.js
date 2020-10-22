@@ -13,7 +13,7 @@ const ItemListCategoryId = (props) => {
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
-    const itemCollection = db.collection("Items")
+    const itemCollection = db.collection("items")
     const categoryItemCollection = itemCollection.where('categoryId', '==', `${categoryId}`);    
     categoryItemCollection.get()
     .then((querySnapshot) => {

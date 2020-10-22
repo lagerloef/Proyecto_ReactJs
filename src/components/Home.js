@@ -3,7 +3,7 @@ import ItemList from './ItemList.js'
 
 function Home(props) {
     return <div className="container">                
-                <h1> Notebooks, Tablets y SmartPhone de alta calidad</h1> 
+                <h1> Notebooks, Tablets y Celulares de alta calidad</h1> 
                 <ItemList/>              
         </div>            
            

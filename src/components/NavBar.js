@@ -8,10 +8,16 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  NavLink,  
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
   NavbarText,
 } from 'reactstrap';
 import CartIcon from './CartIcon';
+import { Link } from 'react-router-dom';
+
 const Menu = (props) => {
   const [isOpen, setIsOpen] = useState(false);  
   const [cart] = useContext(CartContext);
@@ -31,15 +37,23 @@ const Menu = (props) => {
             <NavItem>
               <NavLink tag={RRNavLink} exact to="/" activeClassName="active">Home</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink tag={RRNavLink} exact to="/categorias/Notebooks" activeClassName="active">Notebooks</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={RRNavLink} exact to="/categorias/Tablets" activeClassName="active">Tablets</NavLink>
-            </NavItem>   
-            <NavItem>
-              <NavLink tag={RRNavLink} exact to="/categorias/SmartPhones" activeClassName="active">Celulares</NavLink>
-            </NavItem> 
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Categorías
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <Link to="/categorias/Notebooks" >Notebooks</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/categorias/Tablets">Tablets</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/categorias/Celulares">Celulares</Link>
+                </DropdownItem>
+                <DropdownItem divider />
+              </DropdownMenu>
+            </UncontrolledDropdown>
             <NavItem>
               <NavLink tag={RRNavLink} exact to="/cart" activeClassName="active">
                 Cart({totalQtyProducts})

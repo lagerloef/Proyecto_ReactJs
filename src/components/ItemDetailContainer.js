@@ -14,7 +14,7 @@ export default function ItemDetailContainer(props) {
     setLoading(true);    
     console.log(id);
     const db = getFirestore()
-    const itemCollection = db.collection('Items');
+    const itemCollection = db.collection('items');
     const item = itemCollection.doc(id);       
     item.get()
     .then((doc) =>{        

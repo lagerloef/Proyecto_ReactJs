@@ -21,7 +21,7 @@ function App() {
         <Switch>
         <Route exact path="/" ><Home nombre="Juan Pablo"/></Route>
         <Route path="/categorias/:categoryId"><CategoryContainer/></Route>
-        <Route path="/Items/:id"><ItemDetailContainer/></Route>
+        <Route path="/items/:id"><ItemDetailContainer/></Route>
         <Route path="/cart" ><Cart/></Route>
         <Route path="/purchaseOrder" ><PurchaseOrder/></Route>
         </Switch>

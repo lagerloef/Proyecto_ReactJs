@@ -22,7 +22,7 @@ const Cart = () => {
       "alignItems": "center"
     }}>
       <h4>Carrito de Compra</h4>
-      <span>Productos Seleccionados: {totalQtyProducts} </span> 
+      <h5>Productos Seleccionados: {totalQtyProducts}</h5> 
       <Table>
       <thead>
         <tr>

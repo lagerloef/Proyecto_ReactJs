@@ -11,35 +11,37 @@
 }
 
 /*Estilos Generales*/
-
+/*
 nav ul {
 	list-style: none;
 	padding: 0;
 }
-
+*/
 nav li {
 	line-height: 3em;
-	position: relative;
+	/*position: relative;*/
 }
-
+/*
 nav li ul {
 	position: absolute;
 }
+*/
 nav a{
-	color:#ddd;
+	color:rgb(24, 20, 20);
 	display: block;
 	padding: 0 2.5em;
 	text-decoration: none;
 }
-
+/*
 nav a:hover {  
-	background: rgba(0,0,0,0.9);
+	background: rgba(94, 92, 92, 0.9);
 	transition: 0.4s;
+	color:white;
 }
-
+*/
 
 /*Primer Nivel*/
-
+/*
 nav > ul {
 	background: #333;
 	display: table;
@@ -49,9 +51,10 @@ nav > ul {
 nav > ul > li {
 	float: left;
 }
+*/
 
 /*Segundo Nivel*/
-
+/*
 nav li li {
 	background: #222;	
 	max-height: 0;
@@ -64,7 +67,7 @@ nav li:hover > ul > li {
 	max-height: 1000px;
 	overflow: visible;
 }
-
+*/
 nav > ul > li > ul {
 	top: 105%;
 }
@@ -74,6 +77,10 @@ nav > ul > li > ul {
 nav ul ul ul {
 	left:101%;
 	top:0;
+}
+
+span {
+	color:white;
 }
 h1{
 	font-size: 24px;
