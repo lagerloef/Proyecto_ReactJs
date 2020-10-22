@@ -13,7 +13,7 @@ const Cart = () => {
 
   if(cart.length!== 0 ) { 
    return (
-    <div>
+    <div className= "container">
       <div style={{
       "display": "flex",
       "flexDirection": "column", 

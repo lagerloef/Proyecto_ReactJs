@@ -87,11 +87,11 @@ function PurchaseOrder(props) {
                               },
                               maxLength: {
                               value: 12, 
-                              message: 'No más de 12 carácteres!'
+                              message: 'No más de 10 carácteres!'
                               },
                               minLength: {
                               value: 3, 
-                              message: 'Mínimo 2 carácteres'
+                              message: 'Mínimo 3 carácteres'
                               }
                         })
                     }
@@ -116,11 +116,11 @@ function PurchaseOrder(props) {
                             },
                             maxLength: {
                               value: 10, 
-                              message: 'No más de 5 carácteres!'
+                              message: 'No más de 10 carácteres!'
                               },
                               minLength: {
                               value: 3, 
-                              message: 'Mínimo 2 carácteres'
+                              message: 'Mínimo 3 carácteres'
                               }
                         })
               }
@@ -216,23 +216,21 @@ function PurchaseOrder(props) {
       enviar
       </button>
     </form> 
-            <ul className="mt-2">
+            <div className="mt-2">
                 {
                     entradas.map((item, index) =>
-                        <li key={index}>
+                        <h3 key={index}>
                             {item.name} {item.lastname} , ahora puedes hacer Click y Generar tu Orden
-                        </li> )                    
+                        </h3> )                    
                 }
-            </ul>
+            </div>
             {entradas.length !==0 ? <button className="btn btn-dark" onClick={getOrder}>
               Generar Orden
             </button> :''}
             <br/>
             <Modal isOpen={modal} toggle={toggle}>
-                        <ModalHeader toggle={clearState}>Order ID:</ModalHeader>
-                        <ModalBody>                            
-                            <span>{orderId}</span>
-                            <br/>
+                        <ModalHeader toggle={clearState}>Order ID: {orderId}</ModalHeader>
+                        <ModalBody>
                             <h3>Muchas gracias por su compra!!</h3>
                         </ModalBody>
                         <ModalFooter>

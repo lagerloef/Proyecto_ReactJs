@@ -1,6 +1,7 @@
 # CompuTienda
-This is a Project ReactJs E-Commerce solution for your Company!
+This is my final Project ReactJs E-Commerce solution for Coder House Academy!
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
@@ -22,6 +23,25 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+### library bootstrap
+For quickly design and customize responsive
+https://getbootstrap.com/
+npm install bootstrap
+
+### library reacstrap
+used in NavBar and modal
+https://reactstrap.github.io/
+https://github.com/reactstrap/reactstrap
+
+npm install --save reactstrap react react-dom
+
+### library react hook Form
+Performant, flexible and extensible forms with easy to use validation.
+https://react-hook-form.com/
+https://github.com/react-hook-form/react-hook-form
+
+npm install react-hook-form
 
 ## Contribute
 - Fork this Repo

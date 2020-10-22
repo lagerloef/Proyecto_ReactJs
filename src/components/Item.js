@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
    function Item (props) {  
      return ( 
       <div className="col-lg-12  col-md-12  col-sm-12"> 
-        <NavLink className="cart" to={`/Items/${props.id}`}>
+        
             <h6>{props.nombre}</h6>
             <center>
             <img
@@ -12,8 +12,10 @@ import { NavLink } from 'react-router-dom';
               alt={props.nombre}
             />
             </center> 
-              <p>Precio: {props.precio}</p> 
-        </NavLink>
+              <p>Precio: {props.precio}</p>
+              <NavLink className="cart" to={`/Items/${props.id}`}>
+                <button className="btn btn-dark">Ver detalles</button> 
+              </NavLink>
       </div> 
         
      );  

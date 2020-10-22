@@ -13,9 +13,8 @@ function ItemDetail (props){
   // Set the Cart Context with the added product
 
   function handlerBuyer(){
-    if (count !== 0){
-      const subtotal = count*props.prod.price;
-      carter(count, props.prod.title, props.prod.id, props.prod.price, subtotal)
+    if (count !== 0){      
+      carter(count, props.prod.title, props.prod.id, props.prod.price)
       setCount(0)
     }    
   }
